@@ -1,19 +1,27 @@
 class SessionsController < ApplicationController
     def new
-     @user = User.new 
+     @user= User.new 
     end
 
     def create
-      @user = User.new(user_params)
-        respond_to do |format| 
-          if @user.save
-            session[:user] = @user.username 
-              format.html { redirect_to action: 'index', notice: 'User was successfully created.' }
-              format.json { render :show, status: :created, location: @user }
-          else
-              format.html { render :new }
-              format.json { render json: @user.errors, status: :unprocessable_entity }
+
+      @login_user = User.new(session_params)
+     
+      if User.exists?(:username => @login_user.username)
+          session[:user] = @login_user.username
+          respond_to do |format|
+          format.html { redirect_to users_url, notice: 'Login succesfully' }
+          end 
+      else
+          respond_to do |format|
+          format.html { render :new }
           end
-        end
-    def
+     
+      end
+    end
+    private
+
+    def session_params
+      params.require(:user).permit(:username)
+    end   
 end

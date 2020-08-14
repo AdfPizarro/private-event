@@ -1,0 +1,12 @@
+<%= form_for(:user, :url => {:controller=>'sessions', :action => 'create' }) do |form| %>
+   <h1>Login </h1>
+    <div class="field">
+      <%= form.label :username %>
+      <%= form.text_field :username %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    
+<% end %>
