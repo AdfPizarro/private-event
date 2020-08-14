@@ -1,6 +1,14 @@
 class SessionsController < ApplicationController
+    
     def new
      @user= User.new 
+    end
+
+    def destroy
+     session[:user]=nil
+     respond_to do |format|
+          format.html { redirect_to users_url, notice: 'Login succesfully' }
+          end
     end
 
     def create
@@ -8,7 +16,11 @@ class SessionsController < ApplicationController
       @login_user = User.new(session_params)
      
       if User.exists?(:username => @login_user.username)
-          session[:user] = @login_user.username
+          usr=User.where(:username => @login_user.username).limit(1).pluck
+          puts usr
+           
+	  session[:user] = usr[0][2]
+          session[:name] = usr[0][1]
           respond_to do |format|
           format.html { redirect_to users_url, notice: 'Login succesfully' }
           end 
