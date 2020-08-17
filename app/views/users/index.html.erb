@@ -1,2 +1,18 @@
-  
-    
+<table>
+<tr>
+ <th>Name</th>
+ <th>Location</th>
+ <th>Date</th>
+ <th>Creator</th>
+</tr>
+
+<% @events.each do | event | %>
+ <tr> 
+  <td><%= event.name %></td>
+  <td><%= event.location %></td>
+  <td><%= event.date %></td>
+  <td><%= event.user.name %></td>
+ </tr>
+
+<% end %>  
+</table>    

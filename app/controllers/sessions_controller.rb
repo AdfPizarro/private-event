@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+     session[:id]=nil
+     session[:name]=nil
      session[:user]=nil
      respond_to do |format|
           format.html { redirect_to users_url, notice: 'Login succesfully' }
@@ -21,6 +23,7 @@ class SessionsController < ApplicationController
            
 	  session[:user] = usr[0][2]
           session[:name] = usr[0][1]
+          session[:id] = usr[0][0]
           respond_to do |format|
           format.html { redirect_to users_url, notice: 'Login succesfully' }
           end 
