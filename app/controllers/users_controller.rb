@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     def index
       @user = session[:user]
-      @events= Event.where(user_id: session[:id])
+      @events= Event.where(creator: session[:id])
     end
     
     def login
