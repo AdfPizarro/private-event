@@ -11,7 +11,7 @@
 
   <body>
     <% if session[:user] %>
- <%= session[:name] %>
+ <%= link_to session[:name], user_path(session[:id]) %>
   <%= link_to 'Logout', session_path(1),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
