@@ -1,4 +1,4 @@
-<h1>Your Events</h1>
+<h1>All the events</h1>
 <table>
 <tr>
  <th>Name</th>
@@ -9,14 +9,14 @@
 </tr>
 
 <% @events.each do | event | %>
- <tr> 
+ <tr>
   <td><%= event.name %></td>
   <td><%= event.location %></td>
-  <td><%= event.date %></td> 
+  <td><%= event.date %></td>
   <td><%= event.description %></td>
   <td><%= event.user.name %></td>
  </tr>
 
-<% end %>  
-</table>    
+<% end %>
+</table>
 <%= link_to 'Create an event', new_event_path %>
