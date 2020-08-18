@@ -3,3 +3,18 @@
 <p>Creator:<%= @event.creator.name %></p>
 <p>Location:<%= @event.location %></p>
 <p>Date:<%= @event.date %></p>
+
+<h4>Attendees</h4>
+<table>
+<tr>
+ <th>Name</th>
+</tr>
+
+<% @events.attendees.each do | attendee | %>
+ <tr>
+  <td><%= attendee.name %></td>
+ </tr>
+
+<% end %>
+</table>
+<%= link_to 'Create an event', new_event_path %>
