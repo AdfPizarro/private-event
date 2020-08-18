@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         if @user.save
           session[:user] = @user.username
           session[:id] = @user.id
+          session[:name]= @user.name
             format.html { redirect_to action: 'index', notice: 'User was successfully created.' }
             format.json { render :show, status: :created, location: @user }
         else
