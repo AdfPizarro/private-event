@@ -9,6 +9,11 @@ class EventsController < ApplicationController
        @event= user.events.build
   end
 
+  def show
+    @event = Event.find(params[:id])
+       
+  end
+
 def create
      user=User.find(session[:id])
       @event= user.events.build(event_params)
