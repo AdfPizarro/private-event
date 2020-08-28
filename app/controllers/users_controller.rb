@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
+    
     def new
        @user = User.new 
     end
 
     def index
       @user = session[:user]
-      @events= Event.where(creator: session[:id])
+      @events= Event.where(creator: current_user.id)
     end
     
     def login
        @user = User.new(params)
-       @current_user = User.find_by(username: @user.username)
+      # @current_user = User.find_by(username: @user.username)
        session[:user] = @user.username 
     end
 
@@ -18,9 +19,8 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       respond_to do |format| 
         if @user.save
-          session[:user] = @user.username
           session[:id] = @user.id
-          session[:name]= @user.name
+          current_user
             format.html { redirect_to action: 'index', notice: 'User was successfully created.' }
             format.json { render :show, status: :created, location: @user }
         else
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     end
 
     def show
-     @user = User.find(params[:id])
+     @user = current_user
     end
 
     private

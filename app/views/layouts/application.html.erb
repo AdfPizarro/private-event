@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <% if session[:user] %>
- <%= link_to session[:name], user_path(session[:id]) %>
+    <% if @current_user %>
+ <%= link_to @current_user.name, user_path(@current_user.id) %>
   <%= link_to 'Logout', session_path(1),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>

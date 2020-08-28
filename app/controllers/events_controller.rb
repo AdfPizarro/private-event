@@ -5,8 +5,8 @@ class EventsController < ApplicationController
   @events=Event.all
  end
  def new
-       user=User.find(session[:id])
-       @event= user.events.build
+       
+       @event= current_user.events.build
   end
 
   def show
@@ -37,7 +37,4 @@ private
       params.require(:event).permit(:name, :location, :date, :description)
     end
 
-    def authorize
-    redirect_to '/sessions/new' unless session[:id]
-  end
 end
