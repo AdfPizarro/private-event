@@ -2,8 +2,8 @@ class EventsController < ApplicationController
  before_action :authorize
  
  def index
-  @events=Event.find_by_sql('SELECT "events".* FROM "events" INNER JOIN "attendees" ON "events"."id" = "attendees"."attended_event_id" WHERE NOT "attendees"."attendee_id" = ' + current_user.id.to_s)
-  @appointments=current_user.appointments
+  @events=Event.all
+  @attendees=
  end
  def new
        
@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    
+       
   end
  
   def appointment

@@ -9,13 +9,34 @@
  <th>Creator</th>
 </tr>
 
-<% @user.appointments.each do | appointment | %>
+<% @upcoming_events.each do | appointment | %>
  <tr>
   <td><%= appointment.name %></td>
   <td><%= appointment.location %></td>
   <td><%= appointment.date %></td>
   <td><%= appointment.description %></td>
   <td><%= appointment.creator.name %></td>
+ </tr>
+
+<% end %>
+</table>
+
+<table>
+<tr>
+ <th>Name</th>
+ <th>Location</th>
+ <th>Date</th>
+ <th>Description</th>
+ <th>Creator</th>
+</tr>
+
+<% @prev_events.each do | appointment | %>
+ <tr>
+  <td><%= appointment.name %></td>
+  <td><%= appointment.location %></td>
+  <td><%= appointment.date %></td>
+  <td><%= appointment.description %></td>       
+  <td><%= appointment.creator.name %></td>      
  </tr>
 
 <% end %>
