@@ -1,4 +1,50 @@
-<h1>All the events</h1>
+<h1>Events<h1>
+
+<h2>Upcoming events</h2>
+<table>
+<tr>
+ <th>Name</th>
+ <th>Location</th>
+ <th>Date</th>
+ <th>Description</th>
+ <th>Creator</th>
+</tr>
+
+<% @upcoming_events.each do | event | %>
+ <tr>
+  <td><%= link_to event.name, event_path(event) %></td>
+  <td><%= event.location %></td>
+  <td><%= event.date %></td>
+  <td><%= event.description %></td>
+  <td><%= event.creator.name %></td>
+</tr>
+
+<% end %>
+</table>
+
+<h2>Past events</h2>
+<table>
+<tr>
+ <th>Name</th>
+ <th>Location</th>
+ <th>Date</th>
+ <th>Description</th>
+ <th>Creator</th>
+</tr>
+
+<% @past_events.each do | event | %>
+ <tr>
+  <td><%= link_to event.name, event_path(event) %></td>
+  <td><%= event.location %></td>
+  <td><%= event.date %></td>
+  <td><%= event.description %></td>
+  <td><%= event.creator.name %></td>
+</tr>
+
+<% end %>
+</table>
+
+<h2>All the events</h2>
 <table>
 <tr>
  <th>Name</th>
