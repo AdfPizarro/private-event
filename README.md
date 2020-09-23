@@ -2,20 +2,22 @@
 
 # Authentication in Rails
 
-This project is to practice how to implement rails authentication using devise gem. It involves building an application where users who are members will be able to logn in, create a post in the application. The authors of the post will be displayed only if the user logged in as a member. Users who did not log in can only see the posts but not the authors.
+This project is to implement Active record relationship in a functional web app, you can create events, see other user events and decide to attend, all your appointments will be displayed in the progile
+
 
 ## Features 
 You can sign up into the app.
 You can sign in into the app. 
-You can create and edit posts.
-Only logged in members will see posts and authours.
+You can create new events
+Only logged in members will have access to the content
+
 
 ## How to Test the Project
 
 Get a local copy of the file  clone with HTTPS 
 
 ```
-https://github.com/AdfPizarro/members-only.git  
+https://github.com/AdfPizarro/private-event.git  
 ```
 Install all the dependencies
 ```
@@ -29,10 +31,10 @@ bin/rake db:migrate
 
 ## Run the server
 
-- Access the project folder by typing the command cd members-oly folder from your terminal
+- Access the project folder by typing the command cd private-event folder from your terminal
 - Start rails server with the command rails server.
 - In your brwoser, type http://localhost:3000/ to access the app.
-- You can now sign in, sign up, create, and edit posts.
+- You can now sign in, sign up, create, and joint to events
 
 ## Built With
 - Ruby 
@@ -49,5 +51,5 @@ bin/rake db:migrate
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/AdfPizarro/members-only/issues).
+Feel free to check the [issues page](https://github.com/AdfPizarro/private-event/issues).
 
