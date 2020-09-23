@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     @upcoming_events = Event.upcoming
     @past_events = Event.past
-    query=SELECT "events".* FROM "events" INNER JOIN "attendees" ON "events"."id" = "attendees"."attended_event_id" WHERE NOT "attendees"."attendee_id" = '
+    query='SELECT "events".* FROM "events" INNER JOIN "attendees" ON "events"."id" = "attendees"."attended_event_id" WHERE NOT "attendees"."attendee_id" = '
     @events = Event.find_by_sql(query + current_user.id.to_s)
     @appointments = current_user.appointments
   end
