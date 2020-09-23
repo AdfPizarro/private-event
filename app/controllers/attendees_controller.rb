@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AttendeesController < ApplicationController
   def create
     @attendee = current_user.attendees.build

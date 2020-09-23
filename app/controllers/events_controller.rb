@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class EventsController < ApplicationController
   before_action :authorize
 
@@ -8,13 +6,14 @@ class EventsController < ApplicationController
     @past_events = Event.past
 
     @events = Event.find_by_sql('SELECT "events".* FROM "events" INNER JOIN "attendees" ON "events"."id" =
-                                "attendees"."attended_event_id" WHERE NOT "attendees"."attendee_id" = ' + current_user.id.to_s)
+                                "attendees"."attended_event_id" WHERE NOT "attendees"."attendee_id" = ' 
+				+ current_user.id.to_s)
     @appointments = current_user.appointments
   end
 
   def new
     @event = current_user.events.build
-   end
+  end
 
   def show
     @event = Event.find(params[:id])
@@ -38,7 +37,7 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
-      end
+  end
 
   private
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class SessionsController < ApplicationController
   def new
     @user = User.new
@@ -7,7 +5,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:id] = nil
-    current_user = nil
     respond_to do |format|
       format.html { redirect_to '/sessions/new', notice: 'Login succesfully' }
     end
