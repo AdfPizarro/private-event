@@ -9,5 +9,5 @@ class ApplicationController < ActionController::Base
 
   def authorize
     redirect_to '/sessions/new' unless current_user
-    end
+  end
 end

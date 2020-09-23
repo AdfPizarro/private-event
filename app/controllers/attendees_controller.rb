@@ -2,7 +2,6 @@
 
 class AttendeesController < ApplicationController
   def create
-    # puts params[:event_id]
     @attendee = current_user.attendees.build
     @attendee.attended_event_id = params[:event_id]
 
@@ -15,5 +14,5 @@ class AttendeesController < ApplicationController
         format.json { render json: @attendee.errors, status: :unprocessable_entity }
       end
     end
-   end
+  end
 end
