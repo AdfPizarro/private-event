@@ -16,6 +16,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    if @event.invitees.exists?(current_user.id)    
+    @attend=true
+    else
+    @attend=false
+    end
   end
 
   def appointment; end
