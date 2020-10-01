@@ -8,7 +8,7 @@
 <% if @attend %>
 You are already register for this event
 <% else %>
-<td><%= link_to "I'll be there", attendees_path(:event_id => @event.id), :method => :post %></td>
+<%= button_to "I'll be there", attendees_path(:event_id => @event.id), :method => :post %>
 <% end %>
 <h2>Attendees</h2>
 <table>

@@ -30,6 +30,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @your_events = Event.where(creator: current_user.id)
+    @upcoming_events = current_user.appointments.upcoming
+    @past_events = current_user.appointments.past
     @events = current_user.appointments
   end
 
