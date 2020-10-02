@@ -15,8 +15,7 @@
      <ul>
  	<li><%= link_to @current_user.name, user_path(@current_user.id) %></li>
   	<li><%= link_to 'Logout', session_path(1),
-          method: :delete,
-          data: { confirm: 'Are you sure?' } %></li>
+          method: :delete  %></li>
         <li><%= link_to 'View events', events_path %></li>
         <li><%= link_to 'Create an event', new_event_path %></li>
      </ul>
@@ -26,5 +25,6 @@
 <% end %>
 <br>
     <%= yield %>
+
   </body>
 </html>

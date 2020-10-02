@@ -4,7 +4,7 @@ RSpec.describe 'Index Page', type: :system do
   describe 'index page' do
     it 'shows the right content' do
       visit root_path
-      expect(page).to have_content('login')
+      expect(page).to have_content('Login')
     end
   end
 end
