@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Authentication', type: :feature do
-  let(:user) { User.create name: 'test_name', username: 'test_username'  }
+  let(:user) { User.create name: 'test_name', username: 'test_username' }
 
   scenario 'login' do
     visit new_session_path

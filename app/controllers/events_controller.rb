@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   before_action :authorize
 
@@ -16,11 +18,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if @event.invitees.exists?(current_user.id)    
-    @attend=true
-    else
-    @attend=false
-    end
+    @attend = if @event.invitees.exists?(current_user.id)
+                true
+              else
+                false
+              end
   end
 
   def appointment; end

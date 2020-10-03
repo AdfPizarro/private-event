@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require './spec/features/authentication_helper.rb'
 
 RSpec.describe 'Show events', type: :feature do
   include AuthenticationHelper
-  let!(:user) { User.create username:'test_username', name: 'test_user' }
+  let!(:user) { User.create username: 'test_username', name: 'test_user' }
   let(:event) do
     Event.create({
                    name: 'Event name',
@@ -26,7 +28,7 @@ RSpec.describe 'Show events', type: :feature do
 
   scenario 'Should create an event and display it' do
     login_user
-    event.name='Event name'
+    event.name = 'Event name'
     visit new_event_path
     fill_in 'event[name]', with: event.name
     fill_in 'event[location]', with: 'Somewhere'

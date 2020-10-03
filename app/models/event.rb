@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Event < ApplicationRecord
   has_many :attendees, foreign_key: :attended_event_id
   has_many :invitees, through: :attendees, source: :attendee
