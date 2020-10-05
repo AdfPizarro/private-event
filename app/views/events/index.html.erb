@@ -17,7 +17,7 @@
   <td><%= event.date %></td>
   <td><%= event.description %></td>
   <td><%= event.creator.name %></td>
-</tr>
+ </tr>
 
 <% end %>
 </table>
@@ -61,23 +61,7 @@
   <td><%= event.date %></td>
   <td><%= event.description %></td>
   <td><%= event.creator.name %></td>
-  <td><%= link_to "I'll be there", attendees_path(:event_id => event.id), :method => :post %></td> 
-</tr>
-
-<% end %>
-</table>
-
-<h2>Appointments</h2>
-<table>
-<% @appointments.each do | appointment | %>
- <tr>
-  <td><%= appointment.name %></td>
-  <td><%= appointment.location %></td>
-  <td><%= appointment.date %></td>
-  <td><%= appointment.description %></td>       
-  <td><%= appointment.creator.name %></td>      
  </tr>
+
 <% end %>
 </table>
-
-<%= link_to 'Create an event', new_event_path %>
